@@ -1,0 +1,35 @@
+.form-control.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+@keyframes alertAnim {
+    from{
+        opacity: 0;
+        transform:  translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform:  translateY(0);
+
+    }
+}
+
+.alert1{
+    background: #f2edda;
+    padding: 7px;
+    font-size: .9em;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: 4s alertAnim forwards;
+}
+
+label {
+    animation:colorchg 3s infinite;
+    color:green
+  }
+ 
+  @keyframes colorchg {
+    50% {
+      color:red;
+    }
+  }

@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Task List</h2>
+    <hr>
+<div class="well">
+  <!--<div *ngIf="isTaskSuccessfullyAdded" class="alert alert-success">
+    <strong>Success!</strong> Task Added Succesfully with Id: {{taskId}}
+  </div>
+  <div *ngIf="isTaskSuccessfullyDeleted" class="alert alert-success">
+      <strong>Success!</strong> Task Deleted Succesfully for title: {{taskTitle}}
+  </div> -->
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="newTask" placeholder="Add New Task"> 
+    <button class="btn btn-primary" (click)="onTaskAdd()">Add</button>
+  </div>
+</div>
+<div class="container task-list"  [@globals]="taskList.length">
+ <div *ngFor="let task of taskList" class="form-group row">
+          <div class="col-md-2">
+           <mat-checkbox #sampleNameVariable [value]="task.isDone" [checked]="task.isDone">Is Done</mat-checkbox>
+           <div *ngIf="sampleNameVariable.checked">Some Detail</div>
+          </div>
+          <div class="col-md-5">
+            <mat-form-field>
+              <input matInput placeholder="Task Name"  value="{{task.title}}" />
+            </mat-form-field>
+            </div>
+          <div>
+              <button class="btn btn-danger" (click)="onDeleteTask(task)">Delete</button>
+          </div>
+  </div>
+</div>
+</div>

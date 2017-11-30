@@ -1,0 +1,35 @@
+<div class="container">
+    <h2 @fadeVertically>Add Task</h2>
+    <hr>
+<div *ngIf="!name; else formInfo">
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+   <div class="form-group">
+      <label for="namex">Name</label>
+      <input type="text" formControlName="name" class="form-control" id="namex"/>
+      <div @fadeVertically *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+          {{ titleAlert }}
+      </div>
+    </div>
+      
+    <div class="form-group">
+      <label for="descriptionx">Description</label>
+      <input type="text" formControlName="description" class="form-control" id="descriptionx"/>
+      <div @fadeVertically *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">
+          Min 30 chars and Max 500 chars
+      </div>
+    </div>
+
+      <label for="validate">Minimum 3 characters </label>
+      <input type="checkbox" name="validate" formControlName="chkValidate" value="1">On
+      <input name="submit" class="btn btn-primary" value="Submit Form" [disabled]="!rForm.valid"/>
+  </form>
+
+</div>
+
+<ng-template #formInfo>
+  <div class="form-group row">
+    <h1>{{name}}}</h1>
+    <p>{{ description }}</p>
+  </div>
+</ng-template>
+</div>
