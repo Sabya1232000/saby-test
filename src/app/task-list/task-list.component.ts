@@ -1,4 +1,4 @@
-import { fade } from './../animations';
+import { fade, goals } from './../animations';
 import { DataService } from './../data.service';
 import { Task } from './../task';
 import { Component, OnInit } from '@angular/core';
