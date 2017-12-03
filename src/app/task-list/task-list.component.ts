@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
-
 @Component({
   selector: 'task-list',
   templateUrl: './task-list.component.html',

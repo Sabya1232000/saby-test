@@ -8,14 +8,18 @@
   <div *ngIf="isTaskSuccessfullyDeleted" class="alert alert-success">
       <strong>Success!</strong> Task Deleted Succesfully for title: {{taskTitle}}
   </div> -->
-  <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]="newTask" placeholder="Add New Task"> 
-    <button class="btn btn-primary" (click)="onTaskAdd()">Add</button>
+  <div class="row">
+    <div class="col-sm-9 col-md-7">
+      <input type="text" class="form-control" [(ngModel)]="newTask" placeholder="Add New Task"> 
+    </div>
+    <div>
+      <button mat-mini-fab color="primary" style="font-size:2em" (click)="onTaskAdd()">+</button>
+    </div>
   </div>
 </div>
-
+<hr>
 <div class="container task-list">
- <div *ngFor="let task of taskList" class="form-group row" @fade>                                                                                                                                                                                                                                                                                                                                                        @goals>
+ <div *ngFor="let task of taskList" class="row" @fade>
           <div class="col-md-2">
            <mat-checkbox #sampleNameVariable [value]="task.isDone" [checked]="task.isDone">Is Done</mat-checkbox>
            <div *ngIf="sampleNameVariable.checked">Some Detail</div>
@@ -24,9 +28,12 @@
             <mat-form-field>
               <input matInput placeholder="Task Name"  value="{{task.title}}" />
             </mat-form-field>
-            </div>
-          <div>
-              <button class="btn btn-danger" (click)="onDeleteTask(task)">Delete</button>
+          </div>
+          <div class="">
+            <a href="#" (click)="onDeleteTask(task)" style="margin-right:15px"><mat-icon>archive</mat-icon> </a>
+            <a href="#" (click)="onDeleteTask(task)">
+                <mat-icon>remove_circle</mat-icon>
+              </a>
           </div>
   </div>
 </div>
